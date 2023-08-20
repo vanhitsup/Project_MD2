@@ -1,8 +1,14 @@
-import React from 'react'
-
+import React from 'react';
+import "./Header.css";
 function Header() {
   return (
     <div>
+  {/* header */}
+  {/* <div className="loader">
+  <div className="loader-inner">
+    <div className="circle" />
+  </div>
+</div> */}
   <div className="top-header-area" id="sticker">
     <div className="container">
       <div className="row">
@@ -11,7 +17,7 @@ function Header() {
             {/* logo */}
             <div className="site-logo">
               <a href="index.html">
-                <img src="assets/img/logo.png" alt />
+                <img src="./assets/img/logo.png" alt />
               </a>
             </div>
             {/* logo */}
@@ -86,23 +92,27 @@ function Header() {
       </div>
     </div>
   </div>
-  {/* end search arewa */}
-  {/* breadcrumb-section */}
-  <div className="breadcrumb-section breadcrumb-bg">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-8 offset-lg-2 text-center">
-          <div className="breadcrumb-text">
-            <p>Fresh and Organic</p>
-            <h1>Shop</h1>
+  {/* end search area */}
+  <div className="hero-area hero-bg">
+  <div className="container">
+    <div className="row">
+      <div className="col-lg-9 offset-lg-2 text-center">
+        <div className="hero-text">
+          <div className="hero-text-tablecell">
+            <p className="subtitle">Fresh &amp; Organic</p>
+            <h1>Delicious Seasonal Fruits</h1>
+            <div className="hero-btns">
+              {/* <a href="shop.html" className="boxed-btn">Fruit Collection</a>
+              <a href="contact.html" className="bordered-btn">Contact Us</a> */}
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  {/* end breadcrumb section */}
 </div>
-  )
+</div>
+    )
 }
 
 export default Header
