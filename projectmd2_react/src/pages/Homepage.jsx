@@ -1,4 +1,6 @@
 import React from 'react'
+import ReactDOM from 'react-dom';
+import { Carousel } from '@trendyol-js/react-carousel';
 function Homepage() {
   return (
     <div>
@@ -269,6 +271,7 @@ function Homepage() {
   </div>
   {/* end latest news */}
   {/* logo carousel */}
+ 
   <div className="logo-carousel-section">
     <div className="container">
       <div className="row">
