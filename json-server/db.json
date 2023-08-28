@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "vietanh@gmail.com",
+      "password": "123456",
+      "isLogin": true
+    },
+    {
+      "id": 2,
+      "email": "vanh@gmail.com",
+      "password": "123456",
+      "isLogin": true
+    }
+  ]
+}
