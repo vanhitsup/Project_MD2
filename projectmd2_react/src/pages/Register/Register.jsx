@@ -1,82 +1,56 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import "./Register.css";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Login.css";
 import Swal from "sweetalert2";
 
-// CommonJS
-function Login() {
-  const [userData, setUserData] = useState([]);
-
-  const [loginData, setLoginData] = useState({
+function Register() {
+  const [user, setUser] = useState({
     email: "",
     password: "",
+    crfPassword: "",
   });
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/users")
-      .then((response) => {
-        setUserData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setLoginData((prevData) => ({ ...prevData, [name]: value }));
+    setUser((prevData) => ({ ...prevData, [name]: value }));
   };
-
-  console.log(userData);
-  console.log(loginData);
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    const user = userData.find(
-      (user) =>
-        user.email === loginData.email && user.password === loginData.password
-    );
-    console.log(user);
-    if (user) {
-      // Login successful, you can perform further actions here
-      axios
-        .patch(`http://localhost:8000/users/${user.id}`, {
-          isLogin: true,
-        })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.error(err);
+    axios
+      .post("http://localhost:8000/users", {
+        email: user.email,
+        password: user.password,
+        isLogin: false,
+      })
+      .then((response) => {
+        console.log("Đăng ký thành công:", response.data);
+        Swal.fire({
+          title: "success!",
+          text: "Successful registration!",
+          icon: "success",
+          confirmButtonText: "OK",
         });
-      localStorage.setItem("isLoginId", user.id);
-      Swal.fire({
-        title: "success!",
-        text: "Logged in successfully!",
-        icon: "success",
-        confirmButtonText: "OK",
+        navigate("/login");
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Error!",
+          text: "Login failed!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+        console.error("Đăng ký lỗi:", error);
       });
-      navigate("/");
-    } else {
-      // Invalid credentials
-
-      Swal.fire({
-        title: "Error!",
-        text: "Login failed!",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    }
   };
-  
+
   return (
     <div>
       <div className="container-main">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form onSubmit={handleSubmit}>
-          {/* Email input */}
           <div className="form-outline mb-4">
             <label className="form-label" htmlFor="form2Example1">
               Email address
@@ -87,30 +61,46 @@ function Login() {
               name="email"
               className="form-control"
               onChange={handleInputChange}
-              value={loginData.email}
+              value={user.email}
             />
-            <span className="p-error">aaaaaaaaaaaaaaaaaaaaaaa</span>
+            {errors.username && <span className="p-error">{errors.email}</span>}
           </div>
-          {/* Password input */}
           <div className="form-outline mb-4">
             <label className="form-label" htmlFor="form2Example2">
               Password
             </label>
-
             <input
               type="password"
               name="password"
               id="form2Example2"
               className="form-control"
               onChange={handleInputChange}
-              value={loginData.password}
+              value={user.password}
             />
-            <span className="p-error">aaaaaaaaaaaaaaaaaaaaaaa</span>
+
+            {errors.username && (
+              <span className="p-error">{errors.password}</span>
+            )}
           </div>
-          {/* 2 column grid layout for inline styling */}
+          <div className="form-outline mb-4">
+            <label className="form-label" htmlFor="form2Example2">
+              Confirm Password
+            </label>
+            <input
+              type="crfPassword"
+              name="crfPassword"
+              id="form2Example2"
+              className="form-control"
+              onChange={handleInputChange}
+              value={user.crfPassword}
+            />
+
+            {errors.username && (
+              <span className="p-error">{errors.crfPassword}</span>
+            )}
+          </div>
           <div className="row mb-4">
             <div className="col d-flex justify-content-center">
-              {/* Checkbox */}
               <div className="form-check">
                 <input
                   className="form-check-input"
@@ -120,24 +110,20 @@ function Login() {
                   defaultChecked
                 />
                 <label className="form-check-label" htmlFor="form2Example31">
-                  {" "}
-                  Remember me{" "}
+                  Remember me
                 </label>
               </div>
             </div>
             <div className="col">
-              {/* Simple link */}
               <a href="#!">Forgot password?</a>
             </div>
           </div>
-          {/* Submit button */}
           <button type="submit" className="btn btn-primary btn-block mb-4">
-            Sign in
+            Register
           </button>
-          {/* Register buttons */}
           <div className="text-center">
             <p>
-              Not a member? <Link to={"/register"}>Register</Link>
+              Not a member? <Link to="/login">Login</Link>
             </p>
             <p>or sign up with:</p>
             <button type="button" className="btn btn-link btn-floating mx-1">
@@ -159,4 +145,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

@@ -11,6 +11,18 @@
       "email": "vanh@gmail.com",
       "password": "123456",
       "isLogin": true
+    },
+    {
+      "email": "ptva@gmail.com",
+      "password": "123456",
+      "isLogin": true,
+      "id": 3
+    },
+    {
+      "email": "vietanhpt.me@gmail.com",
+      "password": "123456",
+      "isLogin": false,
+      "id": 4
     }
   ]
 }
