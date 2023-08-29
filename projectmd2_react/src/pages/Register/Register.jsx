@@ -31,7 +31,7 @@ function Register() {
           title: "success!",
           text: "Successful registration!",
           icon: "success",
-          confirmButtonText: "OKla",
+          confirmButtonText: "OK",
         });
         navigate("/login");
       })
