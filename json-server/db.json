@@ -24,5 +24,43 @@
       "isLogin": false,
       "id": 4
     }
+  ],
+
+  "products":[
+    {
+      "id":1,
+      "product_name":"strawberry",
+      "product_img":"./assets/img/products/product-img-1.jpg",
+      "product_des":"Lorem",
+      "product_qty":"100",
+      "product_cate":1,
+      "product_price": 100
+    },
+    {
+      "id":2,
+      "product_name":"Berry",
+      "product_img":"./assets/img/products/product-img-2.jpg",
+      "product_des":"Lorem 2",
+      "product_qty":"300",
+      "product_cate":1,
+      "product_price": 100
+    },
+    {
+      "id":3,
+      "product_name":"Lemon",
+      "product_img":"./assets/img/products/product-img-3.jpg",
+      "product_des":"Lorem",
+      "product_qty":"100",
+      "product_cate":1,
+      "product_price": 100
+    },{
+      "id":4,
+      "product_name":"Avocado",
+      "product_img":"./assets/img/products/product-img-4.jpg",
+      "product_des":"Lorem",
+      "product_qty":"100",
+      "product_cate":1,
+      "product_price": 100
+    }
   ]
 }

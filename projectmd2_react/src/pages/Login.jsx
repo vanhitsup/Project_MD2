@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
-<<<<<<< HEAD
-=======
 // ES6 Modules or TypeScript
->>>>>>> 64f14253d7bcdd7dde268be99c8a04e666eeed77
 import Swal from "sweetalert2";
 
 // CommonJS
@@ -82,12 +79,9 @@ function Login() {
         <form onSubmit={handleSubmit}>
           {/* Email input */}
           <div className="form-outline mb-4">
-<<<<<<< HEAD
             <label className="form-label" htmlFor="form2Example1">
               Email address
             </label>
-=======
->>>>>>> 64f14253d7bcdd7dde268be99c8a04e666eeed77
             <input
               type="email"
               id="form2Example1"
@@ -96,7 +90,6 @@ function Login() {
               onChange={handleInputChange}
               value={loginData.email}
             />
-<<<<<<< HEAD
             <span className="p-error">aaaaaaaaaaaaaaaaaaaaaaa</span>
           </div>
           {/* Password input */}
@@ -105,14 +98,10 @@ function Login() {
               Password
             </label>
 
-=======
-            <label className="form-label" htmlFor="form2Example1">
-              Email address
-            </label>
+            
           </div>
           {/* Password input */}
           <div className="form-outline mb-4">
->>>>>>> 64f14253d7bcdd7dde268be99c8a04e666eeed77
             <input
               type="password"
               name="password"
@@ -121,13 +110,8 @@ function Login() {
               onChange={handleInputChange}
               value={loginData.password}
             />
-<<<<<<< HEAD
             <span className="p-error">aaaaaaaaaaaaaaaaaaaaaaa</span>
-=======
-            <label className="form-label" htmlFor="form2Example2">
-              Password
-            </label>
->>>>>>> 64f14253d7bcdd7dde268be99c8a04e666eeed77
+           
           </div>
           {/* 2 column grid layout for inline styling */}
           <div className="row mb-4">
@@ -159,11 +143,8 @@ function Login() {
           {/* Register buttons */}
           <div className="text-center">
             <p>
-<<<<<<< HEAD
               Not a member? <Link to={"/register"}>Register</Link>
-=======
               Not a member? <Link to="/register">Register</Link>
->>>>>>> 64f14253d7bcdd7dde268be99c8a04e666eeed77
             </p>
             <p>or sign up with:</p>
             <button type="button" className="btn btn-link btn-floating mx-1">
