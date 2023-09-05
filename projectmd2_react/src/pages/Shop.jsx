@@ -43,9 +43,8 @@ console.log(products);
         <div className="col-lg-4 col-md-6 text-center strawberry">
         <div className="single-product-item" key={i}>
           <div className="product-image">
-          <Link to={`/single-product/${e.id}`}><img src={e.product_img} alt /></Link>
+          <Link to={`/product/${e.id}`}><img src={e.product_img} alt /></Link>
 
-            <a href="single-product.html"></a>
           </div>
           <h3>{e.product_name}</h3>
           <p className="product-price"><span>Per Kg</span> {e.product_price} $</p>

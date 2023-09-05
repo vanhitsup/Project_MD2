@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Cart() {
   return (
@@ -74,8 +75,11 @@ function Cart() {
             </tbody>
           </table>
           <div className="cart-buttons">
-            <a href="cart.html" className="boxed-btn">Update Cart</a>
-            <a href="checkout.html" className="boxed-btn black">Check Out</a>
+            {/* <a href="cart.html" className="boxed-btn">Update Cart</a> */}
+            <Link to={'/cart'}  className="boxed-btn">Update Cart</Link>
+            <Link to={'/checkout'}  className="boxed-btn black">Check Out</Link>
+
+            {/* <a href="checkout.html" className="boxed-btn black">Check Out</a> */}
           </div>
         </div>
         <div className="coupon-section">

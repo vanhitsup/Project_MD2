@@ -2,27 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import axios from "axios";
 function SingleProduct() {
-  // const [products, setProduct] = useState([]);
-  // const param = useParams();
-  // console.log(param); 
-  // // Dữ liệu product
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8000/products")
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       let dataProduct = response.data;
-  //       let findProduct = dataProduct.find(
-  //         (e) => e.id === Number(param.id)
-  //       );
-  //       console.log(findProduct);
-  //       setProduct(findProduct);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
-  // console.log(products);
+  const [products, setProduct] = useState([]);
+  const param = useParams();
+  console.log(param); 
+  // Dữ liệu product
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/products")
+      .then((response) => {
+        console.log(response.data);
+        let dataProduct = response.data;
+        let findProduct = dataProduct.find(
+          (e) => e.id === Number(param.id)
+        );
+        console.log(findProduct);
+        setProduct(findProduct);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+  console.log(products);
   return (
     <div>
         <div>
@@ -34,14 +34,14 @@ function SingleProduct() {
       <div className="row">
         <div className="col-md-5">
           <div className="single-product-img">
-            <img src="./assets/img/products/product-img-1.jpg" alt />
+            <img src={products.product_img} alt />
           </div>
         </div>
         <div className="col-md-7">
           <div className="single-product-content">
-            <h3>Green apples have polyphenols</h3>
-            <p className="single-product-pricing"><span>Per Kg</span> 100$</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sint dignissimos, rem commodi cum voluptatem quae reprehenderit repudiandae ea tempora incidunt ipsa, quisquam animi perferendis eos eum modi! Tempora, earum.</p>
+            <h3>{products.product_name}</h3>
+            <p className="single-product-pricing"><span>Per Kg</span> {products.product_price}$</p>
+            <p>{products.product_des}</p>
             <div className="single-product-form">
               <form action="index.html">
                 <input type="number" placeholder={0} />
@@ -78,7 +78,7 @@ function SingleProduct() {
         <div className="col-lg-4 col-md-6 text-center">
           <div className="single-product-item">
             <div className="product-image">
-              <a href="single-product.html"><img src="./assets/img/products/product-img-1.jpg" alt /></a>
+              <a href="single-product.html"><img src="../assets/img/products/product-img-1.jpg" alt /></a>
             </div>
             <h3>Strawberry</h3>
             <p className="product-price"><span>Per Kg</span> 85$ </p>
@@ -88,7 +88,7 @@ function SingleProduct() {
         <div className="col-lg-4 col-md-6 text-center">
           <div className="single-product-item">
             <div className="product-image">
-              <a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt /></a>
+              <a href="single-product.html"><img src="../assets/img/products/product-img-2.jpg" alt /></a>
             </div>
             <h3>Berry</h3>
             <p className="product-price"><span>Per Kg</span> 70$ </p>
@@ -98,7 +98,7 @@ function SingleProduct() {
         <div className="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
           <div className="single-product-item">
             <div className="product-image">
-              <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt /></a>
+              <a href="single-product.html"><img src="../assets/img/products/product-img-3.jpg" alt /></a>
             </div>
             <h3>Lemon</h3>
             <p className="product-price"><span>Per Kg</span> 35$ </p>

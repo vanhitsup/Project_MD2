@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import { Carousel } from '@trendyol-js/react-carousel';
 function Homepage() {
   return (
     <div>
