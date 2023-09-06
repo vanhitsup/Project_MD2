@@ -21,45 +21,51 @@
     {
       "email": "vietanhpt.me@gmail.com",
       "password": "123456",
-      "isLogin": false,
+      "isLogin": true,
       "id": 4
+    },
+    {
+      "email": "vietanhpt.me@gmail.com",
+      "password": "123456",
+      "isLogin": false,
+      "id": 5
     }
   ],
-
-  "products":[
+  "products": [
     {
-      "id":1,
-      "product_name":"strawberry",
-      "product_img":"../assets/img/products/product-img-1.jpg",
-      "product_des":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.",
-      "product_qty":"100",
-      "product_cate":1,
+      "id": 1,
+      "product_name": "strawberry",
+      "product_img": "../assets/img/products/product-img-1.jpg",
+      "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.",
+      "product_qty": "100",
+      "product_cate": 1,
       "product_price": 100
     },
     {
-      "id":2,
-      "product_name":"Berry",
-      "product_img":"../assets/img/products/product-img-2.jpg",
-      "product_des":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio. 2",
-      "product_qty":"300",
-      "product_cate":1,
+      "id": 2,
+      "product_name": "Berry",
+      "product_img": "../assets/img/products/product-img-2.jpg",
+      "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio. 2",
+      "product_qty": "300",
+      "product_cate": 1,
       "product_price": 100
     },
     {
-      "id":3,
-      "product_name":"Lemon",
-      "product_img":"../assets/img/products/product-img-3.jpg",
-      "product_des":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.",
-      "product_qty":"100",
-      "product_cate":1,
+      "id": 3,
+      "product_name": "Lemon",
+      "product_img": "../assets/img/products/product-img-3.jpg",
+      "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.",
+      "product_qty": "100",
+      "product_cate": 1,
       "product_price": 100
-    },{
-      "id":4,
-      "product_name":"Avocado",
-      "product_img":"../assets/img/products/product-img-4.jpg",
-      "product_des":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.",
-      "product_qty":"100",
-      "product_cate":1,
+    },
+    {
+      "id": 4,
+      "product_name": "Avocado",
+      "product_img": "../assets/img/products/product-img-4.jpg",
+      "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.",
+      "product_qty": "100",
+      "product_cate": 1,
       "product_price": 100
     }
   ]
