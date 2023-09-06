@@ -5,7 +5,6 @@ function SingleProduct() {
   const [products, setProduct] = useState([]);
   const param = useParams();
   console.log(param); 
-  // Dữ liệu product
   useEffect(() => {
     axios
       .get("http://localhost:8000/products")

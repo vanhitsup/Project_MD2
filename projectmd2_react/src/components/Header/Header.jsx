@@ -53,7 +53,7 @@ function Header() {
                 <li>
                   <div className="header-icons">
                     <Link to={'/cart'} className="shopping-cart"><i className="fas fa-shopping-cart" /></Link>
-                    <a className="shopping-cart" href=""><i className="fas fa-user"></i></a>
+                    <Link to={'/login'} className="shopping-cart"><i className="fas fa-user"></i></Link>
                     <a className="mobile-hide search-bar-icon" href="#"><i className="fas fa-search" /></a>
                   </div>
                 </li>
