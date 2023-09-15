@@ -54,7 +54,7 @@ function Login() {
         });
       localStorage.setItem("isLoginId", user.id);
       Swal.fire({
-        title: "success!",
+        title: "Success!",
         text: "Logged in successfully!",
         icon: "success",
         confirmButtonText: "OK",
@@ -71,7 +71,7 @@ function Login() {
       });
     }
   };
-  
+
   return (
     <div>
       <div className="container-main">
@@ -97,8 +97,6 @@ function Login() {
             <label className="form-label" htmlFor="form2Example2">
               Password
             </label>
-
-            
           </div>
           {/* Password input */}
           <div className="form-outline mb-4">
@@ -111,7 +109,6 @@ function Login() {
               value={loginData.password}
             />
             <span className="p-error">aaaaaaaaaaaaaaaaaaaaaaa</span>
-           
           </div>
           {/* 2 column grid layout for inline styling */}
           <div className="row mb-4">

@@ -28,7 +28,7 @@ function Register() {
       .then((response) => {
         console.log("Đăng ký thành công:", response.data);
         Swal.fire({
-          title: "success!",
+          title: "Success!",
           text: "Successful registration!",
           icon: "success",
           confirmButtonText: "OK",

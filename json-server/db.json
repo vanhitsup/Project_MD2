@@ -48,7 +48,7 @@
       "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio. 2",
       "product_qty": "300",
       "product_cate": 1,
-      "product_price": 100
+      "product_price": 120
     },
     {
       "id": 3,
@@ -57,7 +57,7 @@
       "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.",
       "product_qty": "100",
       "product_cate": 1,
-      "product_price": 100
+      "product_price": 50
     },
     {
       "id": 4,
@@ -67,6 +67,63 @@
       "product_qty": "100",
       "product_cate": 1,
       "product_price": 100
+    },
+    {
+      "id": 5,
+      "product_name": "Green Apple",
+      "product_img": "../assets/img/products/product-img-5.jpg",
+      "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio. 2",
+      "product_qty": "300",
+      "product_cate": 1,
+      "product_price": 200
+    },
+    
+    {
+      "id": 6,
+      "product_name": "Strawberry",
+      "product_img": "../assets/img/products/product-img-6.jpg",
+      "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio. 2",
+      "product_qty": "300",
+      "product_cate": 1,
+      "product_price": 150
+    }
+  ],
+  "carts": [
+    {
+      "userId": 4,
+      "productId": 1,
+      "productName": "strawberry",
+      "productPrice": 100,
+      "productImg": "../assets/img/products/product-img-1.jpg",
+      "amount": 2,
+      "id": 1
+    },
+    {
+      "userId": 4,
+      "productId": 2,
+      "productName": "Berry",
+      "productPrice": 100,
+      "productImg": "../assets/img/products/product-img-2.jpg",
+      "amount": 6,
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "productId": 4,
+      "productName": "Avocado",
+      "productPrice": 100,
+      "productImg": "../assets/img/products/product-img-4.jpg",
+      "amount": 1,
+      "id": 3
+    },
+    {
+      "userId": 3,
+      "productId": 3,
+      "productName": "Lemon",
+      "productPrice": 100,
+      "productImg": "../assets/img/products/product-img-3.jpg",
+      "amount": 9,
+      "id": 4
     }
   ]
 }
