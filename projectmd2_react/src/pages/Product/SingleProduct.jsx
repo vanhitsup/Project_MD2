@@ -83,7 +83,7 @@ function SingleProduct() {
         </div>
         {/* end single product */}
         {/* more products */}
-        <div className="more-products mb-150">
+        {/* <div className="more-products mb-150">
           <div className="container">
             <div className="row">
               <div className="col-lg-8 offset-lg-2 text-center">
@@ -149,7 +149,7 @@ function SingleProduct() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* end more products */}
       </div>
     </div>

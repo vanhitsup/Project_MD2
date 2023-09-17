@@ -14,6 +14,16 @@ function Homepage() {
         console.error(error);
       });
   }, []);
+
+  products.length = 3;
+  // let idRandom = Math.floor(Math.random() * 6);
+  // console.log(products.length);
+  // for (let i = 0; i < products.length + 3 - products.length; i++) {
+  //   return products[i];
+  // }
+  // let findProductRandom = products.filter((e) => e.id == idRandom);
+
+  // let randomProduct = {};
   return (
     <div>
       {/* features list section */}
@@ -74,19 +84,21 @@ function Homepage() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-4 col-md-6 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="single-product.html">
-                    <img src="./assets/img/products/product-img-1.jpg" alt />
-                  </a>
+            {products.map((e, index) => (
+              <div className="col-lg-4 col-md-6 text-center">
+                <div className="single-product-item" key={index}>
+                  <div className="product-image">
+                    <Link to={`/product/${e.id}`}>
+                      <img src={e.product_img} alt />
+                    </Link>
+                  </div>
+                  <h3>{e.product_name}</h3>
+                  <p className="product-price">
+                    <span>Per Kg</span> {e.product_price} $
+                  </p>
                 </div>
-                <h3>Strawberry</h3>
-                <p className="product-price">
-                  <span>Per Kg</span> 85${" "}
-                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
