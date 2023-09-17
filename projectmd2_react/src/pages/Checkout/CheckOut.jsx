@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function CheckOut() {
   const [cart, setCart] = useState([]);
   const userLoginId = JSON.parse(localStorage.getItem("isLoginId"));
-  console.log("Cart", cart);
   let findUserCart = cart.filter((e) => e.userId == userLoginId);
+
   // console.log("findUserCart", findUserCart);
   //Subtotal
   let sum = 0;
@@ -25,7 +26,65 @@ function CheckOut() {
         console.error(error);
       });
   }, []);
+  //
+  const user = localStorage.getItem("loginUser");
+  const [currentUser, setCurentUser] = useState(user);
 
+  const [customer, setCustomer] = useState({
+    name: "",
+    email: "",
+    address: "",
+    phoneNumber: "",
+  });
+  //removerCart
+  function removeCart() {
+    const deleted = findUserCart.slice(0, findUserCart.length);
+    return deleted;
+  }
+  //handleInput
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setCustomer((customer) => ({
+      ...customer,
+      [name]: value,
+    }));
+  };
+  //handleCheckout
+  const handleCheckout = (e) => {
+    e.preventDefault();
+
+    const newOrder = {
+      order_id: Math.floor(Math.random() * 100000),
+      order_date: new Date(),
+      order_status: "waiting for shipping",
+      order_user: userLoginId,
+      order_total: sum,
+      order_customer: {
+        name: customer.name,
+        email: customer.email,
+        address: customer.address,
+        phoneNumber: customer.phoneNumber,
+      },
+      order_item: [...findUserCart],
+    };
+    axios
+      .post("http://localhost:8000/orders", newOrder)
+      .then((res) => {
+        Swal.fire({
+          title: "Thank you for your order!",
+          icon: "success",
+        }).then(() => {
+          removeCart();
+        });
+        setCustomer({
+          name: "",
+          email: "",
+          address: "",
+          phoneNumber: "",
+        });
+      })
+      .catch((e) => console.log(e));
+  };
   return (
     <div>
       {/* check out section */}
@@ -58,86 +117,56 @@ function CheckOut() {
                     >
                       <div className="card-body">
                         <div className="billing-address-form">
-                          <form action="index.html">
+                          <form>
                             <p>
-                              <input type="text" placeholder="Name" />
-                            </p>
-                            <p>
-                              <input type="email" placeholder="Email" />
-                            </p>
-                            <p>
-                              <input type="text" placeholder="Address" />
-                            </p>
-                            <p>
-                              <input type="tel" placeholder="Phone" />
-                            </p>
-                            <p>
-                              <textarea
-                                name="bill"
-                                id="bill"
-                                cols={30}
-                                rows={10}
-                                placeholder="Say Something"
-                                defaultValue={""}
+                              <input
+                                type="text"
+                                placeholder="Name"
+                                name="name"
+                                value={customer.name}
+                                onChange={handleInput}
+                                required
                               />
                             </p>
+                            <p>
+                              <input
+                                type="email"
+                                placeholder="Email"
+                                name="email"
+                                value={customer.email}
+                                onChange={handleInput}
+                                required
+                              />
+                            </p>
+                            <p>
+                              <input
+                                type="text"
+                                placeholder="Address"
+                                name="address"
+                                value={customer.address}
+                                onChange={handleInput}
+                                required
+                              />
+                            </p>
+                            <p>
+                              <input
+                                type="tel"
+                                placeholder="Phone"
+                                name="phoneNumber"
+                                value={customer.phoneNumber}
+                                onChange={handleInput}
+                                required
+                              />
+                            </p>
+
+                            <button
+                              className="boxed-btn"
+                              style={{ marginTop: "20px", border: "none" }}
+                              onClick={handleCheckout}
+                            >
+                              Place Order
+                            </button>
                           </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card single-accordion">
-                    <div className="card-header" id="headingTwo">
-                      <h5 className="mb-0">
-                        <button
-                          className="btn btn-link collapsed"
-                          type="button"
-                          data-toggle="collapse"
-                          data-target="#collapseTwo"
-                          aria-expanded="false"
-                          aria-controls="collapseTwo"
-                        >
-                          Shipping Address
-                        </button>
-                      </h5>
-                    </div>
-                    <div
-                      id="collapseTwo"
-                      className="collapse"
-                      aria-labelledby="headingTwo"
-                      data-parent="#accordionExample"
-                    >
-                      <div className="card-body">
-                        <div className="shipping-address-form">
-                          <p>Your shipping address form is here.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card single-accordion">
-                    <div className="card-header" id="headingThree">
-                      <h5 className="mb-0">
-                        <button
-                          className="btn btn-link collapsed"
-                          type="button"
-                          data-toggle="collapse"
-                          data-target="#collapseThree"
-                          aria-expanded="false"
-                          aria-controls="collapseThree"
-                        >
-                          Card Details
-                        </button>
-                      </h5>
-                    </div>
-                    <div
-                      id="collapseThree"
-                      className="collapse"
-                      aria-labelledby="headingThree"
-                      data-parent="#accordionExample"
-                    >
-                      <div className="card-body">
-                        <div className="card-details">
-                          <p>Your card details goes here.</p>
                         </div>
                       </div>
                     </div>
@@ -181,9 +210,6 @@ function CheckOut() {
                     </tr>
                   </tbody>
                 </table>
-                <a href="#" className="boxed-btn">
-                  Place Order
-                </a>
               </div>
             </div>
           </div>

@@ -8,7 +8,8 @@ function Header() {
 
   let nameUser = "";
   const handleLogout = () => {
-    localStorage.removeItem("isLoginId");
+    localStorage.clear();
+
     navigate("/login");
   };
   useEffect(() => {

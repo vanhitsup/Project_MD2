@@ -53,6 +53,7 @@ function Login() {
           console.error(err);
         });
       localStorage.setItem("isLoginId", user.id);
+      localStorage.setItem("loginUser", JSON.stringify(user));
       Swal.fire({
         title: "Success!",
         text: "Logged in successfully!",

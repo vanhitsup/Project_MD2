@@ -433,7 +433,7 @@ p:last-child {
   background-color: #162133;
 }
 
-a.boxed-btn {
+button.boxed-btn,a.boxed-btn {
   font-family: "Poppins", sans-serif;
   display: inline-block;
   background-color: #f28123;
@@ -464,7 +464,7 @@ a.read-more-btn:hover {
   color: #f28123;
 }
 
-a.boxed-btn,
+button.boxed-btn,a.boxed-btn,
 a.bordered-btn,
 button.cart-btn {
   border-radius: 50px;
@@ -1038,17 +1038,20 @@ a.navbar-brand:hover {
   opacity: 0.7;
 }
 
-a.boxed-btn {
+button.boxed-btn,a.boxed-btn {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
 
+button.boxed-btn:hover {
+  background-color: #051922;
+  color: #f28123;
+}
 a.boxed-btn:hover {
   background-color: #051922;
   color: #f28123;
 }
-
 a.bordered-btn {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
@@ -1689,7 +1692,7 @@ p.excerpt {
   color: #555;
 }
 
-.latest-news a.boxed-btn {
+.latest-news button.boxed-btn,a.boxed-btn {
   margin-top: 80px;
 }
 

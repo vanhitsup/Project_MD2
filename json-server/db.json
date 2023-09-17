@@ -96,6 +96,51 @@
       "productImg": "../assets/img/products/product-img-5.jpg",
       "amount": 1,
       "id": 1
+    },
+    {
+      "userId": 3,
+      "productId": 3,
+      "productName": "Lemon",
+      "productPrice": 50,
+      "productImg": "../assets/img/products/product-img-3.jpg",
+      "amount": 1,
+      "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "order_id": 12826,
+      "order_date": "2023-09-17T19:05:28.553Z",
+      "order_status": "waiting for shipping",
+      "order_user": 3,
+      "order_total": 250,
+      "order_customer": {
+        "name": "Phạm Trần Việt Anh",
+        "email": "vietanhpt.me@gmail.com",
+        "address": "Co Nhue",
+        "phoneNumber": "0854572098"
+      },
+      "order_item": [
+        {
+          "userId": 3,
+          "productId": 5,
+          "productName": "Green Apple",
+          "productPrice": 200,
+          "productImg": "../assets/img/products/product-img-5.jpg",
+          "amount": 1,
+          "id": 1
+        },
+        {
+          "userId": 3,
+          "productId": 3,
+          "productName": "Lemon",
+          "productPrice": 50,
+          "productImg": "../assets/img/products/product-img-3.jpg",
+          "amount": 1,
+          "id": 2
+        }
+      ],
+      "id": 1
     }
   ]
 }
