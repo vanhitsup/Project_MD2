@@ -89,22 +89,13 @@
   ],
   "carts": [
     {
-      "userId": 4,
-      "productId": 3,
-      "productName": "Lemon",
-      "productPrice": 50,
-      "productImg": "../assets/img/products/product-img-3.jpg",
-      "amount": 7,
-      "id": 4
-    },
-    {
-      "userId": 4,
-      "productId": 2,
-      "productName": "Berry",
-      "productPrice": 120,
-      "productImg": "../assets/img/products/product-img-2.jpg",
-      "amount": 2,
-      "id": 5
+      "userId": 3,
+      "productId": 5,
+      "productName": "Green Apple",
+      "productPrice": 200,
+      "productImg": "../assets/img/products/product-img-5.jpg",
+      "amount": 1,
+      "id": 1
     }
   ]
 }
