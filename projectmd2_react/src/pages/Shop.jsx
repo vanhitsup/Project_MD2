@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import ItemProduct from "./Product/ItemProduct";
 import Swal from "sweetalert2";
-
 function Shop() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);

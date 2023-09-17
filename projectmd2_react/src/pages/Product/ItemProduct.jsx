@@ -1,52 +1,57 @@
 // import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function ItemProduct(props) {
   const { key, item, cart, setCart } = props;
 
   const handleBuy = (e, i) => {
-    console.log(i);
     let findItem = cart.find((item) => item.productId === i);
-    Swal.fire({
-      title: "Success!",
-      text: "Cart added successfully",
-      icon: "success",
-      confirmButtonText: "OK",
-    });
-    if (!findItem) {
-      axios
-        .post("http://localhost:8000/carts", {
-          userId: JSON.parse(localStorage.getItem("isLoginId")),
-          productId: i,
-          productName: e.product_name,
-          productPrice: e.product_price,
-          productImg: e.product_img,
-          amount: 1,
-        })
-
-        .then((res) => {
-          console.log(res);
-          // Update the cart state after successful addition
-          setCart([...cart, res.data]); // Assuming the response data contains the added item
-        })
-        .catch((err) => console.log(err));
+    const loginId = JSON.parse(localStorage.getItem("isLoginId"));
+    if (loginId == null) {
+      window.location.assign("http://localhost:3000/login");
     } else {
-      const updatedAmount = findItem.amount + 1;
-      axios
-        .patch(`http://localhost:8000/carts/${findItem.id}`, {
-          amount: updatedAmount,
-        })
-        .then((res) => {
-          console.log(res);
-          // Update the cart state after successful update
-          const updatedCart = cart.map((item) =>
-            item.productId === i ? { ...item, amount: updatedAmount } : item
-          );
-          setCart(updatedCart);
-        })
-        .catch((err) => console.log(err));
+      Swal.fire({
+        title: "Success!",
+        text: "Cart added successfully",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+
+      if (!findItem) {
+        axios
+          .post("http://localhost:8000/carts", {
+            userId: JSON.parse(localStorage.getItem("isLoginId")),
+            productId: i,
+            productName: e.product_name,
+            productPrice: e.product_price,
+            productImg: e.product_img,
+            amount: 1,
+          })
+
+          .then((res) => {
+            console.log(res);
+            // Update the cart state after successful addition
+            setCart([...cart, res.data]); // Assuming the response data contains the added item
+          })
+          .catch((err) => console.log(err));
+      } else {
+        const updatedAmount = findItem.amount + 1;
+        axios
+          .patch(`http://localhost:8000/carts/${findItem.id}`, {
+            amount: updatedAmount,
+          })
+          .then((res) => {
+            console.log(res);
+            // Update the cart state after successful update
+            const updatedCart = cart.map((item) =>
+              item.productId === i ? { ...item, amount: updatedAmount } : item
+            );
+            setCart(updatedCart);
+          })
+          .catch((err) => console.log(err));
+      }
     }
   };
 
