@@ -59,7 +59,11 @@ function Login() {
         icon: "success",
         confirmButtonText: "OK",
       });
-      navigate("/");
+      setTimeout(() => {
+        // navigate("/");
+        window.location.assign("http://localhost:3000/");
+      }, 500);
+      //
     } else {
       // Invalid credentials
 
@@ -90,7 +94,6 @@ function Login() {
               onChange={handleInputChange}
               value={loginData.email}
             />
-            <span className="p-error">aaaaaaaaaaaaaaaaaaaaaaa</span>
           </div>
           {/* Password input */}
           <div className="form-outline mb-4">
@@ -108,7 +111,6 @@ function Login() {
               onChange={handleInputChange}
               value={loginData.password}
             />
-            <span className="p-error">aaaaaaaaaaaaaaaaaaaaaaa</span>
           </div>
           {/* 2 column grid layout for inline styling */}
           <div className="row mb-4">

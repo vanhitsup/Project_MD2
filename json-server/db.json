@@ -25,16 +25,16 @@
       "id": 4
     },
     {
-      "email": "vietanhpt.me@gmail.com",
+      "email": "abc@gmail.com",
       "password": "123456",
-      "isLogin": false,
+      "isLogin": true,
       "id": 5
     }
   ],
   "products": [
     {
       "id": 1,
-      "product_name": "strawberry",
+      "product_name": "Mulberry",
       "product_img": "../assets/img/products/product-img-1.jpg",
       "product_des": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.",
       "product_qty": "100",
@@ -77,7 +77,6 @@
       "product_cate": 1,
       "product_price": 200
     },
-    
     {
       "id": 6,
       "product_name": "Strawberry",
@@ -91,39 +90,57 @@
   "carts": [
     {
       "userId": 4,
-      "productId": 1,
-      "productName": "strawberry",
-      "productPrice": 100,
-      "productImg": "../assets/img/products/product-img-1.jpg",
-      "amount": 2,
-      "id": 1
+      "productId": 3,
+      "productName": "Lemon",
+      "productPrice": 50,
+      "productImg": "../assets/img/products/product-img-3.jpg",
+      "amount": 5,
+      "id": 4
     },
     {
       "userId": 4,
-      "productId": 2,
-      "productName": "Berry",
-      "productPrice": 100,
-      "productImg": "../assets/img/products/product-img-2.jpg",
-      "amount": 6,
-      "id": 2
+      "productId": 5,
+      "productName": "Green Apple",
+      "productPrice": 200,
+      "productImg": "../assets/img/products/product-img-5.jpg",
+      "amount": 3,
+      "id": 5
     },
     {
-      "userId": 3,
+      "userId": 4,
       "productId": 4,
       "productName": "Avocado",
       "productPrice": 100,
       "productImg": "../assets/img/products/product-img-4.jpg",
-      "amount": 1,
-      "id": 3
+      "amount": 3,
+      "id": 6
     },
     {
-      "userId": 3,
-      "productId": 3,
-      "productName": "Lemon",
+      "userId": 4,
+      "productId": 6,
+      "productName": "Strawberry",
+      "productPrice": 150,
+      "productImg": "../assets/img/products/product-img-6.jpg",
+      "amount": 1,
+      "id": 7
+    },
+    {
+      "userId": 5,
+      "productId": 1,
+      "productName": "Mulberry",
       "productPrice": 100,
-      "productImg": "../assets/img/products/product-img-3.jpg",
-      "amount": 9,
-      "id": 4
+      "productImg": "../assets/img/products/product-img-1.jpg",
+      "amount": 2,
+      "id": 8
+    },
+    {
+      "userId": 5,
+      "productId": 2,
+      "productName": "Berry",
+      "productPrice": 120,
+      "productImg": "../assets/img/products/product-img-2.jpg",
+      "amount": 1,
+      "id": 9
     }
   ]
 }

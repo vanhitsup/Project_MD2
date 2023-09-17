@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 function Cart() {
   const [cart, setCart] = useState([]);
+  const userLoginId = JSON.parse(localStorage.getItem("isLoginId"));
+  console.log("Cart", cart);
+  let findUserCart = cart.filter((e) => e.userId == userLoginId);
+  console.log("findUserCart", findUserCart);
+  //Subtotal
+  let sum = 0;
+  for (let i = 0; i < findUserCart.length; i++) {
+    sum += findUserCart[i].amount * findUserCart[i].productPrice;
+  }
 
   // Lấy dữ liệu cart
   useEffect(() => {
@@ -17,6 +26,16 @@ function Cart() {
         console.error(error);
       });
   }, []);
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:8000/carts/${id}`)
+      .then((response) => {
+        // window.location.assign("http://localhost:3000/cart");
+        window.location.reload(false);
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div>
       {/* cart */}
@@ -37,15 +56,23 @@ function Cart() {
                     </tr>
                   </thead>
                   <tbody>
+                    {/* <tr className="table-body-row">
+                      <td colSpan={6}>
+                        <h4>Cart is empty</h4>
+                      </td>
+                    </tr> */}
                     {cart.map((e, i) => (
                       <tr className="table-body-row" key={i}>
                         <td className="product-remove">
-                          <a href="#">
-                            <i className="far fa-window-close" />
-                          </a>
+                          <button
+                            onClick={() => handleDelete(e.id)}
+                            className="btn-remove"
+                          >
+                            x
+                          </button>
                         </td>
                         <td className="product-image">
-                          <img src={e.productImg} alt />
+                          <img src={e.productImg} alt="" />
                         </td>
                         <td className="product-name">{e.productName}</td>
                         <td className="product-price">
@@ -75,7 +102,7 @@ function Cart() {
                       <td>
                         <strong>Subtotal: </strong>
                       </td>
-                      <td>$500</td>
+                      <td>${sum}</td>
                     </tr>
                     <tr className="total-data">
                       <td>
@@ -87,7 +114,7 @@ function Cart() {
                       <td>
                         <strong>Total: </strong>
                       </td>
-                      <td>$545</td>
+                      <td>${sum + 30}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -103,7 +130,7 @@ function Cart() {
                   {/* <a href="checkout.html" className="boxed-btn black">Check Out</a> */}
                 </div>
               </div>
-              <div className="coupon-section">
+              {/* <div className="coupon-section">
                 <h3>Apply Coupon</h3>
                 <div className="coupon-form-wrap">
                   <form action="index.html">
@@ -115,7 +142,7 @@ function Cart() {
                     </p>
                   </form>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

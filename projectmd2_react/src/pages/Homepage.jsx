@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 function Homepage() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/products")
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   return (
     <div>
       {/* features list section */}
@@ -72,41 +85,6 @@ function Homepage() {
                 <p className="product-price">
                   <span>Per Kg</span> 85${" "}
                 </p>
-                <button className="cart-btn">
-                  <i className="fas fa-shopping-cart" /> Add to Cart
-                </button>{" "}
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="single-product.html">
-                    <img src="./assets/img/products/product-img-2.jpg" alt />
-                  </a>
-                </div>
-                <h3>Berry</h3>
-                <p className="product-price">
-                  <span>Per Kg</span> 70${" "}
-                </p>
-                <button className="cart-btn">
-                  <i className="fas fa-shopping-cart" /> Add to Cart
-                </button>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="single-product.html">
-                    <img src="./assets/img/products/product-img-3.jpg" alt />
-                  </a>
-                </div>
-                <h3>Lemon</h3>
-                <p className="product-price">
-                  <span>Per Kg</span> 35${" "}
-                </p>
-                <button className="cart-btn">
-                  <i className="fas fa-shopping-cart" /> Add to Cart
-                </button>
               </div>
             </div>
           </div>

@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 function Shop() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-
   useEffect(() => {
     axios
       .get("http://localhost:8000/products")

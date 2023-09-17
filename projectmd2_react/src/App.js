@@ -12,6 +12,7 @@ import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register/Register';
 import NotFound from './pages/NotFound';
+import News from './pages/News';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path='/product/:id' element={<SingleProduct/>}></Route>
           <Route path='/checkout' element={<CheckOut/>}></Route>
           <Route path='/cart' element={<Cart/>}></Route>
+          <Route path='/news' element={<News/>}></Route>
           <Route path='/about' element={<About/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
