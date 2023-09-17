@@ -54,11 +54,9 @@ function Header() {
                     </li>
 
                     <li>
-                      <a href="news.html">News</a>
+                      <Link to={"/news"}>News</Link>
                     </li>
-                    <li>
-                      <a href="contact.html">Contact</a>
-                    </li>
+
                     <li>
                       <Link to={"/shop"}>Shop</Link>
                     </li>
@@ -106,7 +104,7 @@ function Header() {
                                 </Link>
                               </li>
                               <li>
-                                <a href="single-news.html">Order history</a>
+                                <Link to={"/order-history"}>Order history</Link>
                               </li>
                             </ul>
                           </a>

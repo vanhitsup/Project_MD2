@@ -28,7 +28,6 @@ function CheckOut() {
   }, []);
   //
   const user = localStorage.getItem("loginUser");
-  const [currentUser, setCurentUser] = useState(user);
 
   const [customer, setCustomer] = useState({
     name: "",
@@ -38,9 +37,9 @@ function CheckOut() {
   });
   //removerCart
   function removeCart() {
-    const deleted = findUserCart.slice(0, findUserCart.length);
-    return deleted;
+    return findUserCart == [];
   }
+
   //handleInput
   const handleInput = (e) => {
     const { name, value } = e.target;

@@ -69,10 +69,12 @@ function Cart() {
                 </table>
                 <div className="cart-buttons">
                   {/* <a href="cart.html" className="boxed-btn">Update Cart</a> */}
-                  <Link to={"/cart"} className="boxed-btn">
-                    Update Cart
-                  </Link>
-                  <Link to={"/checkout"} className="boxed-btn black">
+
+                  <Link
+                    to={"/checkout"}
+                    className="boxed-btn black"
+                    style={{ marginTop: "-20px" }}
+                  >
                     Check Out
                   </Link>
 
