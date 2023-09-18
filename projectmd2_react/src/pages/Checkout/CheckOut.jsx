@@ -36,9 +36,16 @@ function CheckOut() {
     phoneNumber: "",
   });
   //removerCart
-  function removeCart() {
-    return findUserCart == [];
-  }
+  const removeCart = (userId) => {
+    // axios
+    //   .delete(`http://localhost:8000/carts/${userId}`)
+    //   .then((response) => {
+    //     // window.location.assign("http://localhost:3000/cart");
+    //     // window.location.reload(false);
+    //     navigate("/order-history");
+    //   })
+    //   .catch((error) => console.log(error));
+  };
 
   //handleInput
   const handleInput = (e) => {
