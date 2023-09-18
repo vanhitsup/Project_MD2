@@ -74,6 +74,7 @@ function CheckOut() {
           icon: "success",
         }).then(() => {
           removeCart();
+          //Chưa remove được findUserCart, findUserCart là dữ liệu cart
         });
         setCustomer({
           name: "",
